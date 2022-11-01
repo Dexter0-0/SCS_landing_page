@@ -1,0 +1,210 @@
+:root 
+{
+	--Gradient: linear-gradient(145deg, rgb(19, 96, 148) 0%, rgba(70,158,219,1) 100%);
+	--GradientOffline: linear-gradient(145deg, #a63d3d 0%, #e85e5e 100%);
+	--Offline: #c54848;
+	--BackgroundPrimary: #121212;
+	--BackgroundSecondary: #191919;
+	--Text: rgba(255, 255, 255, 0.8);
+}
+  
+body
+{
+	overflow-x: hidden !important;
+	font-family: 'Montserrat';
+	background-color: var(--BackgroundPrimary);
+}
+
+.debug
+{
+	border: 2px solid red
+}
+
+.animation-increase
+{
+	transition: transform 0.2s;
+}
+
+.animation-increase:hover
+{
+	opacity: 80%;
+}
+
+.animation-increase-small:hover
+{
+	transform: scale(1.07);
+}
+
+.animation-increase-big:hover
+{
+	transform: scale(1.12);
+}
+
+.animation-blink
+{
+	animation: animate 1.7s linear infinite;
+}
+
+@keyframes animate
+{
+	0%{
+	  opacity: 0;
+	}
+	50%{
+	  opacity: 1;
+	}
+	100%{
+	  opacity: 0;
+	}
+}
+
+.container
+{
+	width: 60%;
+	margin-left: 20%;
+	padding: 50px 0px 50px 0px;
+}
+
+.card
+{
+	position: relative;
+	width: 150px;
+	height: 200px;
+	margin: 50px;
+	margin-top: 0px;
+	text-align: center;
+	background-color: var(--BackgroundSecondary);
+	border-radius: 25px;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	padding: 25px;
+}
+
+.card::before 
+{
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 25px;
+  	border: 3px solid transparent;
+  	background: var(--Gradient) border-box;
+	-webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  	-webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.card-link
+{
+	text-decoration: none;
+}
+
+.title
+{
+	font-size: 35px;
+	font-weight: 600;
+	color: var(--Text);
+	white-space: nowrap;
+}
+
+.card-title
+{
+	font-size: 20px;
+	font-weight: 500;
+	color: var(--Text);
+}
+
+#logo
+{
+	width: 100px;
+}
+
+#header-container
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+@media(max-width: 800px)
+{
+	#header-container
+	{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.title
+	{
+		font-size: 28px;
+	}
+
+	#logo
+	{
+		width: 80px;
+	}
+}
+
+#header-container > *
+{
+	padding: 20px;
+}
+
+#card-container
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+@media(max-width: 625px)
+{
+	#card-container
+	{
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.card
+	{
+		margin: 30px;
+		margin-top: 20px;
+	}
+}
+
+.text-offline
+{
+	color: var(--Offline);
+}
+
+.card-offline::before 
+{
+  	background: var(--GradientOffline) border-box;
+}
+
+#copyright
+{
+	color: var(--Text);
+	font-size: 20px;
+	position: absolute;
+	margin-top: 50px;
+	right: 10px;
+}
+
+#credits
+{
+	color: var(--Text);
+	font-size: 20px;
+	position: absolute;
+	margin-top: 50px;
+	left: 10px;
+}
+
+#RaresNickname
+{
+	background: linear-gradient(145deg, rgb(106, 177, 224) 0%, rgb(200, 112, 240) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
